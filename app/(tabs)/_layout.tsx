@@ -1,10 +1,27 @@
 import { Tabs } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
+import { COLORS } from '@/contants/theme'
 
 export default function TabLayout() {
 
   return (
-    <Tabs screenOptions={{ tabBarShowLabel: false }}>
+    <Tabs screenOptions={
+      {
+        tabBarShowLabel: false,
+        tabBarActiveTintColor: COLORS.primary,
+        tabBarInactiveTintColor: COLORS.grey,
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: "black",
+          borderTopWidth: 0,
+          position: "absolute",
+          elevation: 0,
+          height: 40,
+          paddingBottom: 8
+
+        }
+      }}
+    >
       <Tabs.Screen
         name='index'
         options={{ tabBarIcon: ({ size, color }) => <Ionicons name="home" size={size} color={color} /> }}
@@ -15,7 +32,7 @@ export default function TabLayout() {
       />
       <Tabs.Screen
         name='create'
-        options={{ tabBarIcon: ({ size, color }) => <Ionicons name="add-circle" size={size} color={color} /> }}
+        options={{ tabBarIcon: ({ size }) => <Ionicons name="add-circle" size={size} color={COLORS.primary} /> }}
       />
       <Tabs.Screen
         name='notifications'
