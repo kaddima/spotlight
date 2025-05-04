@@ -8,7 +8,7 @@ export default function Index() {
   const { user } = useUser()
   return (
     <View
-      style={styles.container}
+      
     >
       <SignedIn>
         <Text>Hello {user?.emailAddresses[0].emailAddress}</Text>
