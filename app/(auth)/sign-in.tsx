@@ -1,6 +1,6 @@
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native'
 import React, { useState } from 'react'
-import { useSignIn } from '@clerk/clerk-expo'
+import { useSignIn, useSSO } from '@clerk/clerk-expo'
 import { Link, useRouter } from 'expo-router'
 import styles from '@/styles/auth.styles'
 import { Ionicons } from '@expo/vector-icons'
@@ -8,10 +8,23 @@ import { COLORS } from '@/contants/theme'
 
 export default function SignInScreen() {
   const { signIn, isLoaded, setActive } = useSignIn()
+  const { startSSOFlow } = useSSO()
   const router = useRouter()
 
   const [emailAddress, setEmailAddress] = useState("")
   const [password, setPassword] = useState("")
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const { createdSessionId, setActive, signIn } = await startSSOFlow({ strategy: "oauth_google" })
+      if (setActive && createdSessionId) {
+        setActive({ session: createdSessionId })
+        router.replace("/(tabs)")
+      }
+    } catch (error) {
+      console.log("Google oauth: ", error)
+    }
+  }
 
   const onSignInPress = async () => {
     if (!isLoaded) return
@@ -61,7 +74,7 @@ export default function SignInScreen() {
       <View style={styles.loginSection}>
         <TouchableOpacity
           style={styles.googleButton}
-          onPress={()=>console.log("Continue with google")}
+          onPress={handleGoogleSignIn}
           activeOpacity={0.9}
         >
           <View style={styles.googleIconContainer}>
