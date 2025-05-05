@@ -4,6 +4,9 @@ import { Dimensions, StyleSheet } from "react-native";
 const { width, height } = Dimensions.get("window")
 
 const styles = StyleSheet.create({
+  scrollContainer:{
+    flexGrow:1
+  },
   container: {
     flex: 1,
     backgroundColor: COLORS.background
@@ -89,7 +92,59 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: COLORS.grey,
     maxHeight: 280
-  }
+  },
+
+  //FORM sign in or sign up
+  form: {
+    width: '100%',
+    maxWidth: 400,
+    padding: 20,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    elevation: 5, // For Android shadow
+    shadowColor: '#000', // For iOS shadow
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  input: {
+    height: 50,
+    borderColor: '#ddd',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingLeft: 15,
+    marginBottom: 15,
+    fontSize: 16,
+    color: '#333',
+  },
+  button: {
+    height: 50,
+    backgroundColor: '#007BFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 8,
+    marginBottom: 15,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  footerText: {
+    fontSize: 16,
+    color: '#777',
+  },
+  link: {
+    fontSize: 16,
+    color: '#007BFF',
+    fontWeight: 'bold',
+    marginLeft: 5,
+  },
 
 })
 
