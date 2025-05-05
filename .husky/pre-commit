@@ -1,0 +1,4 @@
+npx biome format --write --staged . &&
+echo "updating git index with biome formatted files" &&
+git update-index --again &&
+echo "Formatting complete"
