@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
   brandSection: {
     alignItems: "center",
-    marginTop: height * 0.12
+    marginTop: 12
   },
   logoContainer: {
     width: 60,
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(74, 222, 128, 0.15)",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 20
+    marginBottom: 10
   },
   appName: {
     fontSize: 42,
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     fontFamily: "JetBrainMono-Medium",
     color: COLORS.primary,
     letterSpacing: 0.5,
-    marginBottom: 8
+    marginBottom: 5
   },
   tagLine: {
     fontSize: 16,
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   loginSection: {
     width: "100%",
     paddingHorizontal: 24,
-    paddingBottom: 40,
+    paddingBottom: 20,
     alignItems: "center"
   },
   googleButton: {
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: COLORS.white,
     paddingHorizontal: 24,
-    paddingVertical: 16,
+    paddingVertical: 12,
     borderRadius: 14,
     marginBottom: 20,
     width: "100%",
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   form: {
     width: '100%',
     maxWidth: 400,
-    padding: 20,
+    padding: 16,
     backgroundColor: '#fff',
     borderRadius: 10,
     elevation: 5, // For Android shadow
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   button: {
-    height: 50,
+    height: 40,
     backgroundColor: '#007BFF',
     justifyContent: 'center',
     alignItems: 'center',
