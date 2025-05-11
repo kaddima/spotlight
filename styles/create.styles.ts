@@ -96,12 +96,16 @@ export const styles = StyleSheet.create({
 	captionContainer: {
 		flexDirection: "row",
 		alignItems: "flex-start",
+		borderBottomWidth: 0.5,
+		borderBlockColor: COLORS.surface,
 	},
 	userAvatar: {
 		width: 36,
 		height: 36,
 		borderRadius: 18,
 		marginRight: 12,
+		borderWidth: 0.5,
+		borderColor: COLORS.surface,
 	},
 	captionInput: {
 		flex: 1,

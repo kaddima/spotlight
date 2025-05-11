@@ -9,12 +9,13 @@
  */
 
 import type {
-  ApiFromModules,
-  FilterApi,
-  FunctionReference,
+	ApiFromModules,
+	FilterApi,
+	FunctionReference,
 } from "convex/server";
 import type * as http from "../http.js";
 import type * as httpAction_Webhooks from "../httpAction/Webhooks.js";
+import type * as mutation_posts from "../mutation/posts.js";
 import type * as mutation_users from "../mutation/users.js";
 
 /**
@@ -26,15 +27,16 @@ import type * as mutation_users from "../mutation/users.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
-  http: typeof http;
-  "httpAction/Webhooks": typeof httpAction_Webhooks;
-  "mutation/users": typeof mutation_users;
+	http: typeof http;
+	"httpAction/Webhooks": typeof httpAction_Webhooks;
+	"mutation/posts": typeof mutation_posts;
+	"mutation/users": typeof mutation_users;
 }>;
 export declare const api: FilterApi<
-  typeof fullApi,
-  FunctionReference<any, "public">
+	typeof fullApi,
+	FunctionReference<any, "public">
 >;
 export declare const internal: FilterApi<
-  typeof fullApi,
-  FunctionReference<any, "internal">
+	typeof fullApi,
+	FunctionReference<any, "internal">
 >;
