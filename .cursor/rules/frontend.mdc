@@ -1,0 +1,40 @@
+# Cursor Rules for Vehicle Dashboard
+
+## UI Components
+- Prefer shadcn components over custom ones
+- Use Lucide React icons exclusively
+- Always use appropriate color variables from the theme
+- Prefer small, composable components over large monolithic ones
+
+## TypeScript
+- Always type React components with explicit interfaces
+- Never use 'any' unless absolutely necessary
+- Use type instead of interface for simple type definitions
+- Ensure convex functions have proper type definitions
+
+## Code Style
+- Use // for single-line comments
+- Keep functions under 50 lines where possible
+- Limit nesting to 3 levels
+- Use meaningful variable names
+- Add JSDoc comments for complex functions
+
+## React Patterns
+- Use Next.js Image component instead of HTML img tags
+- Prefer controlled components over uncontrolled ones
+- Implement proper error boundaries
+- Extract reusable hooks for shared logic
+
+## Import Order
+1. React and Next.js imports
+2. External libraries and dependencies
+3. Convex-specific imports
+4. Internal components and utilities
+5. Type imports
+6. CSS/style imports
+
+## Convex Best Practices
+- Group related mutations and queries in the same file
+- Add descriptive comments for complex database operations
+- Validate all inputs with proper validators
+- Handle errors gracefully with appropriate messages
