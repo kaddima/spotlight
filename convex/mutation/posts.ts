@@ -1,17 +1,6 @@
 import { v } from "convex/values";
-import {
-	mutation,
-	type MutationCtx,
-	type QueryCtx,
-} from "../_generated/server";
-
-export async function getAuthUser(ctx: MutationCtx | QueryCtx) {
-	const user = await ctx.auth.getUserIdentity();
-	if (!user) {
-		throw new Error("Unauthorized");
-	}
-	return user;
-}
+import { mutation, query } from "../_generated/server";
+import { getAuthUser } from "./users";
 
 export const generateUploadUrl = mutation({
 	handler: async (ctx) => {
@@ -23,15 +12,9 @@ export const generateUploadUrl = mutation({
 export const createPosts = mutation({
 	args: { caption: v.optional(v.string()), storageId: v.id("_storage") },
 	handler: async (ctx, args) => {
-		const currentUser = await getAuthUser(ctx);
-		const userDetails = await ctx.db
-			.query("users")
-			.withIndex("by_clerk_id", (q) => q.eq("clerkId", currentUser.subject))
-			.first();
-
-		if (!userDetails) throw new Error("User not found");
-
+		const userDetails = await getAuthUser(ctx);
 		const imageUrl = await ctx.storage.getUrl(args.storageId);
+
 		if (!imageUrl) throw new Error("Image not found");
 
 		//create the post
